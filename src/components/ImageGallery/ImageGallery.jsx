@@ -37,9 +37,9 @@ export const ImageGallery = ({ searchedItem }) => {
       .then(response => response.json())
       .then(res => {
         setLeftToLoad(prevState => prevState - res.hits.length);
-        setCollection([...searchedItemsCollection, ...res.hits]);
+        setCollection(prevState => [...prevState, ...res.hits]);
       });
-  }, [pageNumber]);
+  }, [pageNumber, searchedItem]);
 
   const onClick = data => {
     setPageNumber(prevState => prevState + data);
