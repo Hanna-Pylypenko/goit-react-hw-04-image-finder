@@ -12,7 +12,7 @@ export const SearchBar = ({ onSubmit }) => {
   };
   const onFormSubmit = evt => {
     evt.preventDefault();
-    console.log(searchedItem);
+
     if (searchedItem.trim() === '') {
       toast.warn(' Please, type something.');
       return;
