@@ -7,17 +7,20 @@ const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ toggleModal, modalImage, alt }) => {
   useEffect(() => {
-    window.addEventListener('keydown', e => {
+    const escapeClose = e => {
       if (e.code === 'Escape') {
         toggleModal();
       }
-    });
-  });
+    };
+    window.addEventListener('keydown', escapeClose);
+
+    return window.removeEventListener('keydown', escapeClose);
+  }, [toggleModal]);
 
   return createPortal(
     <div className={css.overlay} onClick={toggleModal}>
       <div className={css.modal}>
-        <img src={modalImage} alt={alt} width="700" />
+        <img className="image" src={modalImage} alt={alt} width="700" />
       </div>
     </div>,
     modalRoot
