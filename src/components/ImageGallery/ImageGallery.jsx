@@ -3,7 +3,6 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 
 import PropTypes from 'prop-types';
 export const ImageGallery = ({ searchedItemsCollection }) => {
-  console.log(searchedItemsCollection);
   return (
     <div
       style={{
